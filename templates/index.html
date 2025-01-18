@@ -1,0 +1,101 @@
+<!-- /templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8"> 
+	<title>Solariega Dashboard</title> 
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+
+      <span class="topTitle">*{{ search_query2 }}*Our News Dashboard {{ message }}</span> <span class="datetime" id="datetime"></span> ... 👉 👍😊🙏🤲👏✌️🤝✍️🤞🎧👀📝🤟👂🛠️🧰🍽️...🙃🤪☝️👇👎🤡🤙✋🤚💤👊💪🌌✨
+	 <!-- 
+	 <iframe src="/templates/searchBoxes.html" width="100%" height="40px"></iframe>-->
+	     <div class="solution">Hover over me (is not working as of 20-Dec-2024) !</div>
+	 {% include "searchBoxes.html"%}
+ 
+ 		<div class="topNav">
+			{% if page > 1 %}
+				<a href="{{ url_for('home', page=page-1) }}">Previous</a>
+			{% endif %}
+			{% if page < total_pages %}
+				<a href="{{ url_for('home', page=page+1) }}">Next</a>
+			{% endif %}
+		</div>	
+ 
+	{% for doc in documents %} 		<br>
+		<form class="form-inline" action="/update2" method="POST" >
+					{% if doc.ttl %} 
+						<!-- <label for="title1" class="other"  >{{ key }}:</label>
+						<label class="other"  value= "{{ value }}"> </label>  --><h2 class="docTitle"> {{ doc.ttl }} </h2> &nbsp&nbsp
+						<!-- <input type="text" wrap="soft" id="title1" value= "{{ value }}"  size ="30" >  
+						    name="{{ key }}-->
+						<!--  <span class="datetime" value="{{ value }}">{{ value }}</span> -->
+					{% endif %}
+					{% if doc.img_cause %} <img src="{{ doc.img_cause }}" alt="Cause Image Here" style="max-width: 300px;"> {% endif %}
+					{% if doc.img_effect %} <img src="{{ doc.img_effect }}" alt="Effect Image Here" style="max-width: 300px;"> {% endif %}		
+					{% if doc.image %} <img src="{{ doc.image }}" alt="Image Here" style="max-width: 300px;"> {% endif %}		
+			{% for key, value in doc.items() %}
+					{% if key != "_id" %}
+						{% if (key == "comment") or (key == "comment1") or (key == "comment2") or (key == "comment3") or (key == "svg") %}
+							<label for="{{ key }}" class="other"  >{{ key }}:</label>
+							<textarea id="{{ key }}" name="{{ key }}" rows="5" value="{{ value }}">{{ value }}</textarea> &nbsp&nbsp
+						{% else %}
+							<label for="{{ key }}" class="other"  >{{ key }}:</label>
+							<input  type="text" wrap="soft" id="{{ key }}" name="{{ key }}" value="{{ value }}" size ="50"  value={{ value }}>
+						{% endif %} <!-- class="tooltip-text" -->
+					{% else %} 					
+						<label for="{{ key }}" class="other" >{{ key }}:</label>
+						<input  type="text" id="{{ key }}" name="{{ key }}" value="{{ value }}" size ="25" readonly="true" style="color: green; font-family: courier;"> 
+					{% endif %}
+			{% endfor %}
+			<button type="submit">  Submit  </button><br>
+		</form>
+	 
+
+	{% endfor %}		
+		<div>
+			{% if page > 1 %}
+				<a href="{{ url_for('home', page=page-1) }}">Previous</a>
+			{% endif %}
+			{% if page < total_pages %}
+				<a href="{{ url_for('home', page=page+1) }}">Next</a>
+			{% endif %}
+		</div>			
+					<ul>
+				<!-- This is a comment in HTML -->
+				<!--  <li>{{ doc }}</li>  -->
+<!-- <p>This paragraph is commented out and will not be displayed.</p> -->
+
+			</ul>
+	</pre>
+     <div class="datetime" id="datetime"></div>
+    
+	<img class="small1" src="{{ url_for('static', filename='images/example.svg') }}" alt="Example SVG">
+	<img class="small1" src="{{ url_for('static', filename='images/manageYourThoughts4.svg') }}" alt="manageYourThoughts4 SVG">
+	<img class="small1" src="{{ url_for('static', filename='images/spark.svg') }}" alt="Spark SVG">
+	
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const day = days[now.getDay()];
+            const date = now.getDate().toString().padStart(2, '0');
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = now.getHours() % 12 || 12;
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+            const timeString = `${day} ${date}-${month}-${year} ${hours}:${minutes} ${ampm}`;
+
+            document.getElementById('datetime').textContent = timeString;
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();  // Initial call to display the time immediately
+    </script>
+</body>
+</html>
