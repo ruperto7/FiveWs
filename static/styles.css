@@ -1,0 +1,370 @@
+body {//, html
+	font-family: Arial, sans-serif;
+	//display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	//background-color: #f0f0f0;
+	background-color: #e8e8e873;
+	margin-top: 1cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+	background-color: lightyellow;
+	
+	//margin: 0;
+	//padding: 0;
+	height: 100%;
+	//display: flex;
+	//align-items: center;
+	justify-content: center;
+	background: #e6efb5; /* Avocado skin color */	
+}
+
+.emphaInput {background-color: orange;
+  font-size: large;
+  }
+.responsive-img {
+	/*width: 100%; */
+	height: auto;
+	transition: height 1.3s ease;
+}
+
+/* Full-screen height when the image is targeted */
+#img-target:target .responsive-img {
+	height: 100vh; /* 100% of the viewport height */
+	width: 100hw;
+
+}
+img {
+		overflow: auto;
+}
+
+.smallImg{
+	height: 100px;
+	/* Avocado skin color #height: 100px;*/
+}
+.smallImg:hover {
+	/* max-height: 400px;
+	Avocado skin color #height: 100px;*/
+	height: max-content;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	background-color: white;
+}
+
+.tooltip .tooltiptext {
+	font-family: Arial, sans-serif;
+	font-size: small;
+	visibility: hidden;
+	width: 250px;
+	background-color: lightblue;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%; /* Position above the element */
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+	/* White border */ 
+	border: 2px;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+	background-color: lightblue;
+	text-decoration: underline;
+}
+
+.square {
+	position: absolute;
+	background: linear-gradient(45deg, #4F772D, #A7C957); /* Avocado gradient colors */
+	mix-blend-mode: multiply;
+}
+
+.square:nth-child(1) {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, #6B8E23, #A7C957);
+}
+
+.square:nth-child(2) {
+	width: 80%;
+	height: 80%;
+}
+
+.square:nth-child(3) {
+	width: 60%;
+	height: 60%;
+}
+
+.square:nth-child(4) {
+	width: 40%;
+	height: 40%;
+}
+
+.square:nth-child(5) {
+	width: 20%;
+	height: 20%;
+}
+
+
+.small1 {
+	width: 150px; /* The image will take up 50% of its container's width */ 
+	height: auto; 
+	}
+
+@keyframes rainbow {
+    0% { color: red; }
+    25% { color: brown; }
+    50% { color: green; }
+    75% { color: blue; }
+    100% { color: black; }
+}
+
+.animated-text {
+    animation: rainbow 4s infinite;
+	text-decoration: underline;
+	background-color: orange;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.shadow{
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}	
+
+.datetime {
+	font-size: 14 px;
+	font-weight: bold;
+}
+.docTitle {
+	font-size: 16 px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.topTitle {
+	font-size: 14 px;
+	font-weight: normal;
+	color: gray;
+}
+.topNav{
+	display: flex;
+	justify-content: right;
+}
+
+.pre {
+	background-color: #f4f4f4;
+	border: 1px solid #ddd;
+	padding: 5px;
+	border-radius: 5px;
+	overflow-x: auto;
+}
+.pre1 {
+	background-color: #e0f7fa;
+	border: 1px solid #00838f;
+	padding: 5px;
+	border-radius: 5px;
+	overflow-x: auto;
+	color: #004d40;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking-text {
+    animation: blink 1s infinite;
+	font-weight: bolder;
+	font-size: x-large;
+}
+
+form {
+  /* display: flex; */
+  padding: 1em;
+  /* border: 3px solid #00a; */
+  border-radius: 1em;
+  overflow-x: auto;
+}
+.form-quickSearch 
+{
+	gap: 5px;
+}
+
+.form-quickSearch button {
+ background-color: OrangeRed;
+ }
+ .form-quickSearch button:hover {
+ //background-color: OrangeRed;
+	border: 3px solid gray; /* Top, right, bottom, left border thickness */
+ }
+ .form-quickSearch .btnWheat { background-color: wheat ; }
+ .form-quickSearch .btnTan { background-color: tan ; }
+ .form-quickSearch .btnYellow { background-color: yellow ; }
+ .form-quickSearch .btnLime { background-color: Lime ; }
+ .form-quickSearch .btnBlue 
+	{ 
+		background-color: Blue ;
+		color: white;
+		font-weight: bold;
+	}
+
+.form-container { 
+	display: flex;
+	//flex-wrap: wrap;
+	//gap: 10px; /* Adjust the gap between the forms if needed */ 
+	}
+	
+.form-container .found { 
+	font-family: courier;
+	color: green; 
+	margin-left: 5px;
+	}
+	
+.form-container .bare { 
+	font-size: x-large;
+	}
+	
+form.form-inline label.other {
+			font-weight: bold;
+			color: gray;   
+			margin: 5px 10px 5px 10;
+}	
+	
+.mini { 
+	width: 7ch;
+	display : none;
+	}
+
+.form-inline {
+	box-shadow: 1px 2px 4px rgb(0, 0, 0);
+	border: 1px solid #ccc; /* Optional: to define the border */
+	padding: 1px; /* Optional: to add some padding inside the form */
+    padding-left: 15px;
+    padding-left: 15px;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	background-color: #fee194;
+	/* height: 60px;  compress vertically to fit more docs on screen */
+} 
+
+.form-inline:hover {
+	height: max-content;
+	padding: 5px;
+	transition: 1.5s;
+}	
+/* Add some margins for each label */
+ 
+ 
+/* Style the input fields */
+.form-inline input {
+	resize: both;
+	width: auto;
+	  vertical-align: middle;
+	  margin: 5px 10px 5px 0;
+	  padding: 5px,10px,10px,10px;
+	  /* background-color: #fff; */ to allow orange ttl background 
+	  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+.dynamic-input { 
+	width: auto; 
+	border: 1px solid #ccc; 
+	padding: 5px; 
+	font-size: 16px;
+	)
+
+label {
+  color: gray;
+  padding: 8px; font-family: courier; font-size: smaller;
+}
+
+form label .found {font-family: courier;
+	color: green; 
+	margin-left: 5px;
+	font-weight: bolder;
+
+	} 
+form label .notFound {color: red} 
+
+.success {background-color: #04AA6D;} /* Green */
+.info {background-color: #2196F3;} /* Blue */
+.warning {background-color: #ff9800;} /* Orange */
+.danger {background-color: #f44336;} /* Red */
+.other {
+	background-color: #e7e7e7; 
+	color: gray;
+	font-weight: bold
+	} /* Gray */
+
+textarea { 
+	width: 300px; /* Set the desired width */ resize: none; /* Disable manual resizing */ 
+	overflow: hidden; /* Hide scroll bars */ 
+	box-sizing: border-box; /* Include padding and border in the element's total width and height */ 
+	}
+
+.tooltip-container { position: relative; display: inline-block; } 
+
+.tooltip-container .tooltip-text 
+	{ visibility: hidden; 
+	width: auto; 
+	background-color: black; 
+	color: #fff; 
+	text-align: center; 
+	border-radius: 6px; 
+	padding: 5px; position: absolute; 
+	z-index: 1; bottom: 150%; /* Position the tooltip above the input field */ 
+	left: 50%; transform: translateX(-50%); 
+	white-space: nowrap; /* Prevents wrapping */ } 
+	
+.tooltip-container:hover .tooltip-text { 
+	visibility: visible;}
+
+.solution {
+	position: relative; /* Required for the tooltip */
+	display: inline-block; /* Ensure the element has a proper display */
+	cursor: pointer; /* Change cursor to indicate a tooltip */
+}
+
+.solution::after {
+	content: "document solution details"; /* Tooltip text */
+	position: absolute;
+	bottom: 100%; /* Position above the element */
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: black;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	white-space: nowrap; /* Prevent text wrapping */
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s;
+}
+
+.solution:hover::after {
+	opacity: 1;
+	visibility: visible;
+}
+ 
