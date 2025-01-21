@@ -2,13 +2,25 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import json
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 #app = Flask(__name__)
 app = Flask(__name__, static_folder='static')
 
+# MongoDB connection
+username = os.environ.get('MONGO_USER')
+password = os.environ.get('MONGO_PASS')
+cluster = os.environ.get('MONGO_CLUSTER')
+dbname = os.environ.get('MONGO_DBNAME')
+
 # Connect to MongoDB
-client = MongoClient("mongodb://localhost:27017/")
-db = client.ROOT240830  # bezkoder_db2 # bezkoder_db2 
+mongo_uri = f"mongodb+srv://{username}:{password}@{cluster}/{dbname}?retryWrites=true&w=majority"
+client = MongoClient(mongo_uri)
+db = client.sample_mflix  # bezkoder_db2 # bezkoder_db2 
 collection = db.FiveWs #FamilyAndAllautoGen_notes27jan  
 
 @app.route('/')
